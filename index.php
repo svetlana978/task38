@@ -14,8 +14,8 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>SF-AdTech</title>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="offerActivity.js"></script>
+    
+    
 </head>
 
 <body>
@@ -24,8 +24,9 @@
     <h1 class="mb-4"><a href="<?php echo URL; ?>">Offer</a></h1>
 
     <div class="mb-4">
-        <?php $link = mysqli_connect("localhost", "root", "root", "test") or die(mysqli_error($link)); 
-                if ($_SESSION['auth'] == 1) {
+        <?php
+        include "dbConnect.php";
+          if ($_SESSION['auth'] == 1) {
                     $id_owner = $_SESSION['user_id'];
                     
                     $query = "SELECT * FROM offers WHERE id_owner='$id_owner'";
@@ -44,12 +45,16 @@
                             echo "<td>" . $row['theme'] . "</td>";
                             echo "<td>" . $row['subscribers'] . "</td>";
                             echo "<td>" . $row['activity'] . "</td>";
-                           ?><td> <button id="offer_activity">Disactive</button></td>
-                            <!-- <input type="button" value="x"></input> -->
+                            $id =  $i; 
+                            // $id = 'offer_activity_' . $i;
+                           ?>
+                           <!-- <td> <button id="offer_activity">Disactive</button></td> -->
+                        
+                              <td><input  id="<?php echo $id ?>" type="checkbox" name="delete" checked="checked"></input> </td>
                             <?php  echo "</tr>";
-                            // $_SESSION['offer_id'] = $i;
+                            $_SESSION['i'] = $id;
                             //  echo $i . '  ';
-                            // $i++;
+                             $i++;
                             //  echo $i;
                         }
                         echo "</table>";
@@ -68,16 +73,18 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input@1.3.4/dist/bs-custom-file-input.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input@1.3.4/dist/bs-custom-file-input.min.js"></script> -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="offerDisactive.js"></script>
 </body>
 </html>

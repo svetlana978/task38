@@ -19,7 +19,7 @@ if(isset($_POST['submit']))
     $theme = $_POST['theme'];
     $id_owner = $_SESSION['user_id'];
 
-    $query = "INSERT INTO offers (offer_name, cost, offer_url, theme, id_owner) VALUES ('$name', '$cost', '$url', '$theme', '$id_owner')";
+    $query = "INSERT INTO offers (offer_name, cost, offer_url, theme, id_owner, subscribers, activity) VALUES ('$name', '$cost', '$url', '$theme', '$id_owner', 0, 'YES')";
 
     $result = mysqli_query($link, $query) or die(mysqli_error($link));
     header("Location: index.php");
