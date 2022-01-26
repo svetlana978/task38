@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 //$_SESSION['auth'] = 0;
 
@@ -13,21 +13,20 @@ $link = mysqli_connect($host, $user_enter, $password_enter, $dbName)
 
  mysqli_query($link, "SET NAMES 'utf8'");
 
-    $offer_id = $_POST ["data"];
+   $offer_name = $_POST['of_name'];
     
-    // $of_id = $_SESSION['i'];
-    //  print($of_id);
-  //  print('2   ');
-   print($offer_id);
-  print('   2 ');
+   print($offer_name);
+ 
   
-     $query_current_activity = "SELECT `activity` FROM `offers` WHERE `id` = '$offer_id'";
+     $query_current_activity = "SELECT `activity` FROM `offers` WHERE `offer_name` = '$offer_name'";
      $activity = mysqli_query($link, $query_current_activity) or die(mysqli_error($link));
-     if (mysqli_fetch_assoc($activity) == 'YES') 
-         $query_change_activity = "UPDATE `offers` SET `activity` = 'NO' WHERE `id` = '$offer_id'";
-     else 
-        $query_change_activity = "UPDATE `offers` SET `activity` = 'YES' WHERE `id` = '$offer_id'";
-    
+     $a = current(mysqli_fetch_assoc($activity)); 
+
+     if ($a == 'YES') {
+         $query_change_activity = "UPDATE `offers` SET `activity` = 'NO' WHERE `offer_name` = '$offer_name'";
+      } else {
+        $query_change_activity = "UPDATE `offers` SET `activity` = 'YES' WHERE `offer_name` = '$offer_name'";
+      }
      $result = mysqli_query($link, $query_change_activity) or die(mysqli_error($link));
      //print($result);
       

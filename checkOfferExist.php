@@ -7,16 +7,13 @@ $result = mysqli_fetch_assoc($query);
 if($result != NULL) { 
     foreach($result as $key => $row)
     {
-
-                    //             $offer_name = $result['offer_name'];
-                    //  $cost = $result['cost'];
-                                // $offer_url = $row["offer_url"];
-                                // $theme = $row["theme"];
-                                print($row);
-                                // print($cost);
-    }  
-                        
-                        
+        print($row);
+       //  $offer_name = $result['offer_name'];
+       //  $cost = $result['cost'];
+       // $offer_url = $row["offer_url"];
+       // $theme = $row["theme"];
+       // print($cost);
+    }                     
     }         
                        
                        

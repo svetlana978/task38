@@ -45,12 +45,12 @@
                             echo "<td>" . $row['theme'] . "</td>";
                             echo "<td>" . $row['subscribers'] . "</td>";
                             echo "<td>" . $row['activity'] . "</td>";
-                            $id =  $i; 
+                            $of_name =  $row['offer_name']; 
                             // $id = 'offer_activity_' . $i;
                            ?>
                            <!-- <td> <button id="offer_activity">Disactive</button></td> -->
                         
-                              <td><input  id="<?php echo $id ?>" type="checkbox" name="delete" checked="checked"></input> </td>
+                              <td><input  id="<?php echo $of_name ?>" type="checkbox" name="delete" checked="checked"></input> </td>
                             <?php  echo "</tr>";
                             $_SESSION['i'] = $id;
                             //  echo $i . '  ';
