@@ -50,7 +50,8 @@
                            ?>
                            <!-- <td> <button id="offer_activity">Disactive</button></td> -->
                         
-                              <td><input  id="<?php echo $of_name ?>" type="checkbox" name="delete" checked="checked"></input> </td>
+                              <!-- <td><input  id="<?php echo $of_name ?>" type="checkbox" name="delete" ></input> </td> -->
+                              <td><input  id="<?php echo $of_name ?>" type="button" name="delete" value="disact"></input> </td>
                             <?php  echo "</tr>";
                             $_SESSION['i'] = $id;
                             //  echo $i . '  ';

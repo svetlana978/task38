@@ -15,7 +15,7 @@ $link = mysqli_connect($host, $user_enter, $password_enter, $dbName)
 
    $offer_name = $_POST['of_name'];
     
-   print($offer_name);
+  // print($offer_name);
  
   
      $query_current_activity = "SELECT `activity` FROM `offers` WHERE `offer_name` = '$offer_name'";
@@ -24,12 +24,14 @@ $link = mysqli_connect($host, $user_enter, $password_enter, $dbName)
 
      if ($a == 'YES') {
          $query_change_activity = "UPDATE `offers` SET `activity` = 'NO' WHERE `offer_name` = '$offer_name'";
-      } else {
+        // header('Location: index.php');
+        } else {
         $query_change_activity = "UPDATE `offers` SET `activity` = 'YES' WHERE `offer_name` = '$offer_name'";
+       // header('Location: index.php'); 
       }
      $result = mysqli_query($link, $query_change_activity) or die(mysqli_error($link));
-     //print($result);
-      
-echo "done";
+     print($a);
+      return $a;
+
  
 ?>

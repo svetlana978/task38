@@ -1,28 +1,14 @@
-document.addEventListener('change', function() {
-    var check = event.target;
+document.addEventListener('click', function() {
+    var button = event.target;
+    if (button.tagName === 'INPUT' && button.type === 'button') {
+        // console.log(button.id, button.value);
+        // button.innerHTML = 0;
+        // console.log(button.innerHTML);
 
-    if (check.tagName === 'INPUT' && check.type === 'checkbox') {
-        console.log(check.id, check.checked);
-        // str_num = Number(check.id);
+        // console.log(button.innerText);
         let data = {
-            of_name: check.id,
+            of_name: button.id,
         };
-        // const dataObj = {
-        //     element: Number(check.id)
-        // };
-
-        // const data = JSON.stringify(dataObj);
-
-        // $.ajax({
-        //     type: "POST",
-        //     url: "offerActivity.php",
-        //     data: data,
-        //     contentType: "application/json; charset=utf-8",
-        //     dataType: "json",
-        //     success: function(msg) {
-        //         console.log('success');
-        //     }
-        // });
 
         $.ajax({
             url: 'offerActivity.php',
@@ -32,9 +18,20 @@ document.addEventListener('change', function() {
             error: function() {
                 console.log('Ошибка!');
             },
-            success: function() {
-                console.log('done');
+            success: function(a) {
+                console.log(a);
+                // location.reload();
+
+                if (a == 'YES') {
+                    button.value = 'act';
+                } else button.value = 'disact';
             }
         })
+
+
+
+
+
+
     }
 });
