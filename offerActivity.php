@@ -30,8 +30,9 @@ $link = mysqli_connect($host, $user_enter, $password_enter, $dbName)
        // header('Location: index.php'); 
       }
      $result = mysqli_query($link, $query_change_activity) or die(mysqli_error($link));
-     print($a);
-      return $a;
+     
+      // return $a;
 
- 
+      
+      print($a);
 ?>
